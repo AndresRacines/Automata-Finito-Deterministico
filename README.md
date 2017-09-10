@@ -1,4 +1,4 @@
 # Automata-Finito-Deterministico
 
 
-<img src="https://www.dropbox.com/s/hotun30vj49j2b1/Automata.JPG?dl=0" />
+<img src="https://github.com/AndresRacines/Automata-Finito-Deterministico/blob/master/Automata.JPG" />
