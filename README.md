@@ -1,4 +1,4 @@
 # Automata-Finito-Deterministico
 
+* include Automata.JPG script file
 
-<img src="https://github.com/AndresRacines/Automata-Finito-Deterministico/blob/master/Automata.JPG" />
