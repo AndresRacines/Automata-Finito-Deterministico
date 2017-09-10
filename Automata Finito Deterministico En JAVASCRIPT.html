@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<meta charset="UTF-8">
+	<title>Automata Finito Deterministico</title>
+</head>
+
+<body style="background-color:#81DAF5;">
+
+
+        <h1 align="center">AUTOMATA FINITO</h1> <br />       
+        
+
+
+	<script>
+
+	var ERROR = -1; 
+	var ACEPTADA = 0;
+	var ingresado=0;
+	var indice=0;
+   	var tamaño=0;	
+
+   	estado_0();
+
+
+    function obtenercaracter(){
+
+    	ingresado = prompt("Ingrese una frase: ");
+    	var expReg= /[a-z]/;
+    	var expNum= /[1-9]/;
+    	var expSim= /[+|-|=]/;
+    	var expTotal=/[a-z][1-9][+|-|=]/;
+    	tamaño=ingresado.length;
+
+                if (expReg.test(ingresado)) {
+
+                    //Valida que la expresion regular coincide con solo letras
+                    alert("La expresión Letra "+ingresado+" es VALIDA");
+                    
+                    
+                }else{
+
+                	if (expNum.test(ingresado)) {
+
+                		//Valida que la expresion regular coincide con NUMEROS
+                		alert("La expresión Numero "+ingresado+" es VALIDA");
+
+                	}else{
+
+                		if (expSim.test(ingresado)) {
+
+                		//Valida que la expresion regular coincide con Con los Simbolos +-=	
+                		alert("La expresión Simbolo "+ingresado+" es VALIDA");
+
+                		}      	
+                	
+                	};
+                                       
+                };
+
+                if (ingresado==0) {
+
+
+                	alert("No se ingresaron datos...");
+                	location.reload();
+                	
+                };
+
+    }
+	
+
+	function estado_0(){
+
+		obtenercaracter();	
+		var c =ingresado.charAt(indice);	
+		
+		if (indice<tamaño) {
+
+				document.write("0) El caracter es:  "+c+" <br/>");
+				document.write("Indice= "+indice+" tamaño= "+tamaño+"<br/><br/>");
+
+			switch(c){
+
+				case '+' : indice++;
+							return estado_1();					  
+						   						   
+						
+				case '-' : return estado_2();					   						
+						   indice++;						  
+
+				case '=' : return estado_3();
+
+
+				// case de numeros 1-9
+				case '1':
+						   indice++;
+						   return estado_4();
+							
+				case '2' : 
+						   indice++;
+						   return estado_4();
+				case '3' : 
+						   indice++;
+						   return estado_4();
+
+				case '4' : 
+						   indice++;
+						   return estado_4();
+				case '5' : 
+						   indice++;
+						   return estado_4();
+
+				case '6' : 
+						   indice++;
+						   return estado_4();
+
+				case '7' : 
+						   indice++;
+						   return estado_4();
+
+				case '8' :
+						   indice++;
+						   return estado_4();
+				case '9' : 
+						   indice++;
+						   return estado_4();
+
+				
+				//case de letras a - z
+				case 'a' : 
+							indice++;
+						   	return estado_6();
+				case 'b' : 
+							indice++;
+						   	return estado_6();
+				case 'c' : 
+							indice++;
+						   	return estado_6();
+				case 'd' : 
+							indice++;
+						   	return estado_6();
+				case 'e' : 
+							indice++;
+						   	return estado_6();
+				case 'f' : 
+							indice++;
+						   	return estado_6();
+				case 'g' : 
+							indice++;
+						   	return estado_6();
+				case 'h' : 
+							indice++;
+						   	return estado_6();
+				case 'i' : 
+							indice++;
+						   	return estado_6();
+				case 'j' : 
+							indice++;
+						   	return estado_6();
+				case 'k' : 
+							indice++;
+						   	return estado_6();
+				case 'l' : 
+							indice++;
+						   	return estado_6();
+				case 'm' : 
+							indice++;
+						   	return estado_6();
+				case 'n' : 
+							indice++;
+						   	return estado_6();
+				case 'ñ' : 
+							indice++;
+						   	return estado_6();
+				case 'o' : 
+							indice++;
+						   	return estado_6();
+
+			/* :::::::: Letra P para estado_8 :::::::::*/
+				case 'p' :  indice++;
+						   	return estado_8();
+			/* :::::::: Letra P para estado_8 :::::::::*/
+
+				case 'q' : 
+							indice++;
+						   	return estado_6();
+				case 'r' : 
+							indice++;
+						   	return estado_6();
+				case 's' : 
+							indice++;
+						   	return estado_6();
+				case 't' : 
+							indice++;
+						   	return estado_6();
+				case 'u' : 
+							indice++;
+						   	return estado_6();
+				case 'v' : 
+							indice++;
+						   	return estado_6();						   	
+				case 'w' : 
+							indice++;
+						   	return estado_6();
+				case 'x' : 
+							indice++;
+						   	return estado_6();
+				case 'y' : 
+							indice++;
+						   	return estado_6();
+				case 'z' : 
+							indice++;
+						   	return estado_6();
+
+				default:   document.write("LA EXPRESION ES INVALIDA");
+						   return ERROR; 
+			}
+		}
+	}	
+
+	function estado_1(){
+
+		var c = ingresado.charAt(indice);
+		document.write("1) El caracter es: "+c+"<br/>");
+		document.write("Indice= "+indice+" tamaño= "+tamaño+ "<br/><br/>");
+		if (tamaño==1) {
+				document.write("ESTADO ACEPTADO 'SUMAR' ");
+				
+				
+			}else{ 
+					document.write("ESTADO NO ACEPTADO");
+				
+			};			
+	}
+
+	function estado_2(){
+
+		var c = ingresado.charAt(indice);
+		document.write("2) El caracter es:  "+c+"<br/>");
+		document.write("Indice= "+indice+" tamaño= "+tamaño+ "<br/><br/>");
+		if (tamaño==1) {
+				document.write("ESTADO ACEPTADO 'RESTAR' ");
+				
+				
+			}else{ 
+					document.write("ESTADO NO ACEPTADO");
+				
+			};	
+		
+	}	
+
+
+	function estado_3(){
+
+		var c = ingresado.charAt(indice);
+		document.write("3) El caracter es:  "+c+"<br/>");
+		document.write("Indice= "+indice+" tamaño= "+tamaño+ "<br/><br/>");
+		if (tamaño==1) {
+				document.write("ESTADO ACEPTADO 'ASIGNAR'");
+				
+				
+			}else{ 
+					document.write("ESTADO NO ACEPTADO");
+				
+			};	
+	}
+
+
+	function estado_4(){
+		 
+		var c = ingresado.charAt(indice);
+		document.write("4) El caracter es:  "+c+"<br/>");
+		document.write("Indice= "+indice+" tamaño= "+tamaño+ "<br/><br/>");
+		if (indice<tamaño){
+
+			switch(c){						  
+
+				case '0' : 
+						   indice++;
+						   return estado_4();
+
+				case '1' : 
+						   indice++;
+						   	return estado_4();						   					    
+							
+				case '2' : 
+						   indice++;
+						   return estado_4();
+				case '3' : 
+						   indice++;
+						   return estado_4();
+
+				case '4' : 
+						   indice++;
+						   return estado_4();
+				case '5' : 
+						   indice++;
+						   return estado_4();
+
+				case '6' : 
+						   indice++;
+						   return estado_4();
+
+				case '7' : 
+						   indice++;
+						   return estado_4();
+
+				case '8' : 
+						   indice++;
+						   return estado_4();
+				case '9' : 
+						   indice++;
+						   return estado_4();
+
+				default: return estado_5();
+
+		}
+
+	}else{
+				document.write("ZONA NO ACEPTACION");
+
+			};
+}
+
+
+	function estado_5(){
+
+		var c = ingresado.charAt(indice);
+		document.write("5) El caracter es:  "+c+"<br/>");
+		document.write("Indice= "+indice+" tamaño= "+tamaño+ "<br/><br/>");
+		
+		if ((tamaño - indice)<=1) {
+
+				document.write("ESTADO ACEPTADO 'SUMAR' ");
+
+				
+		} else{
+
+				document.write("ESTADO NO ACEPTADO");
+		};				
+			
+	}
+	
+	function estado_6(){
+
+		var c = ingresado.charAt(indice);
+		document.write("6) El caracter es:  "+c+"<br/>");
+		document.write("Indice= "+indice+" tamaño= "+tamaño+ "<br/><br/>");
+		if (indice<tamaño){
+
+
+			switch(c){
+
+				case 'a' : 
+							indice++;
+						   	return estado_6();
+				case 'b' : 
+							indice++;
+						   	return estado_6();
+				case 'c' : 
+							indice++;
+						   	return estado_6();
+				case 'd' : 
+							indice++;
+						   	return estado_6();
+				case 'e' : 
+							indice++;
+						   	return estado_6();
+				case 'f' : 
+							indice++;
+						   	return estado_6();
+				case 'g' : 
+							indice++;
+						   	return estado_6();
+				case 'h' : 
+							indice++;
+						   	return estado_6();
+				case 'i' : 
+							indice++;
+						   	return estado_6();
+				case 'j' : 
+							indice++;
+						   	return estado_6();
+				case 'k' : 
+							indice++;
+						   	return estado_6();
+				case 'l' : 
+							indice++;
+						   	return estado_6();
+				case 'm' : 
+							indice++;
+						   	return estado_6();
+				case 'n' : 
+							indice++;
+						   	return estado_6();
+				case 'ñ' : 
+							indice++;
+						   	return estado_6();
+				case 'o' : 
+							indice++;
+						   	return estado_6();
+				case 'p' : 
+							indice++;
+						   	return estado_6();
+				case 'q' : 
+							indice++;
+						   	return estado_6();
+				case 'r' : 
+							indice++;
+						   	return estado_6();
+				case 's' : 
+							indice++;
+						   	return estado_6();
+				case 't' : 
+							indice++;
+						   	return estado_6();
+				case 'u' : 
+							indice++;
+						   	return estado_6();
+				case 'v' : 
+							indice++;
+						   	return estado_6();
+				case 'w' : 
+							indice++;
+						   	return estado_6();
+				case 'x' : 
+							indice++;
+						   	return estado_6();
+				case 'y' : 
+							indice++;
+						   	return estado_6();
+				case 'z' : 
+							indice++;
+						   	return estado_6();
+
+				default: return estado_7();
+
+
+
+			}
+
+		}else{
+					document.write("ZONA NO ACEPTACION");
+
+		};
+	}
+
+
+	function estado_7(){
+
+		var c = ingresado.charAt(indice);
+		document.write("7) El caracter es:  "+c+"<br/>");
+		document.write("Indice= "+indice+" tamaño= "+tamaño+ "<br/><br/>");
+		if ((tamaño - indice)<=1) {
+
+				document.write("ESTADO ACEPTADO 'LETRAS' ");
+				
+				
+			}else{ 
+					document.write("ESTADO NO ACEPTADO");
+				
+			};	
+	}
+
+
+	function estado_8(){
+
+		var c = ingresado.charAt(indice);
+		document.write("8) El caracter es:  "+c+"<br/>");
+		document.write("Indice= "+indice+" tamaño= "+tamaño+ "<br/><br/>");
+		if (indice<tamaño){
+
+			switch(c){
+
+				case 'a' : 	indice++;
+						   	return estado_6();
+				case 'b' : 	indice++;
+						   	return estado_6();
+				case 'c' : 	indice++;
+						   	return estado_6();
+				case 'd' : 	indice++;
+						   	return estado_6();
+				case 'e' : 	indice++;
+						   	return estado_6();
+				case 'f' : 	indice++;
+						   	return estado_6();
+				case 'g' : 	indice++;
+						   	return estado_6();
+				case 'h' : 	indice++;
+						   	return estado_6();
+				case 'i' : 	indice++;
+						   	return estado_6();
+				case 'j' : 	indice++;
+						   	return estado_6();
+				case 'k' : 	indice++;
+						   	return estado_6();
+				case 'l' : 	indice++;
+						   	return estado_6();
+				case 'm' : 	indice++;
+						   	return estado_6();
+				case 'n' : 	indice++;
+						   	return estado_6();
+				case 'ñ' : 	indice++;
+						   	return estado_6();
+				case 'o' : 	indice++;
+						   	return estado_6();
+				case 'p' : 	indice++;
+						   	return estado_6();
+				case 'q' : 	indice++;
+						   	return estado_6();
+				/* :::::::: Letra r para estado_9 :::::::::*/ 
+						   	
+				case 'r' : 	indice++;
+						   	return estado_9();
+				/* :::::::: Letra r para estado_9 :::::::::*/ 
+
+				case 's' : 	indice++;
+						   	return estado_6();
+				case 't' : 	indice++;
+						   	return estado_6();
+				case 'u' : 	indice++;
+						   	return estado_6();
+				case 'v' : 	indice++;
+						   	return estado_6();					
+				case 'w' : 	indice++;
+						   	return estado_6();
+				case 'x' : 	indice++;
+						   	return estado_6();
+				case 'y' : 	indice++;
+						   	return estado_6();
+				case 'z' : 	indice++;
+						   	return estado_6();
+
+				default: return estado_13();
+
+
+			}
+		}
+	}
+
+
+	function estado_9(){
+
+		var c = ingresado.charAt(indice);
+		document.write("9) El caracter es:  "+c+"<br/>");
+		document.write("Indice= "+indice+" tamaño= "+tamaño+ "<br/><br/>");
+		if (indice<tamaño){
+
+
+			switch(c){
+
+
+				case 'a' : 	indice++;
+						   	return estado_6();
+				case 'b' : 	indice++;
+						   	return estado_6();
+				case 'c' : 	indice++;
+						   	return estado_6();
+				case 'd' : 	indice++;
+						   	return estado_6();
+				case 'e' : 	indice++;
+						   	return estado_6();
+				case 'f' : 	indice++;
+						   	return estado_6();
+				case 'g' :	indice++;
+						   	return estado_6();
+				case 'h' : 	indice++;
+						   	return estado_6();
+
+			/* :::::::: Letra i para estado_10 :::::::::*/ 
+
+				case 'i' : 	indice++;
+						   	return estado_10();
+			/* :::::::: Letra i para estado_10 :::::::::*/ 
+
+				case 'j' : 	indice++;
+						   	return estado_6();
+				case 'k' : 	indice++;
+						   	return estado_6();
+				case 'l' : 	indice++;
+						   	return estado_6();
+				case 'm' : 	indice++;
+						   	return estado_6();
+				case 'n' : 	indice++;
+						   	return estado_6();
+				case 'ñ' : 	indice++;
+						   	return estado_6();
+				case 'o' : 	indice++;
+						   	return estado_6();
+				case 'p' : 	indice++;
+						   	return estado_6();
+				case 'q' : 	indice++;
+						   	return estado_6();							   	
+				case 'r' : 	indice++;
+						   	return estado_6();
+				case 's' : 	indice++;
+						   	return estado_6();
+				case 't' : 	indice++;
+						   	return estado_6();
+				case 'u' : 	indice++;
+						   	return estado_6();
+				case 'v' : 	indice++;
+						   	return estado_6();				
+				case 'w' : 	indice++;
+						   	return estado_6();
+				case 'x' : 	indice++;
+						   	return estado_6();
+				case 'y' : 	indice++;
+						   	return estado_6();
+				case 'z' : 	indice++;
+						   	return estado_6();
+
+				default: return estado_13();
+
+			}		
+
+		}
+	}
+
+	function estado_10(){
+
+		var c = ingresado.charAt(indice);
+		document.write("10) El caracter es:  "+c+"<br/>");
+		document.write("Indice= "+indice+" tamaño= "+tamaño+ "<br/><br/>");
+		if (indice<tamaño){
+
+
+			switch(c){
+
+
+				case 'a' : 	indice++;
+						   	return estado_6();
+				case 'b' : 	indice++;
+						   	return estado_6();
+				case 'c' : 	indice++;
+						   	return estado_6();
+				case 'd' : 	indice++;
+						   	return estado_6();
+				case 'e' : 	indice++;
+						   	return estado_6();
+				case 'f' : 	indice++;
+						   	return estado_6();
+				case 'g' : 	indice++;
+						   	return estado_6();
+				case 'h' : 	indice++;
+						   	return estado_6();
+				case 'i' : 	indice++;
+						   	return estado_6();
+				case 'j' : 	indice++;
+						   	return estado_6();
+				case 'k' : 	indice++;
+						   	return estado_6();
+				case 'l' : 	indice++;
+						   	return estado_6();
+				case 'm' : 	indice++;
+						   	return estado_6();
+
+			/* :::::::: Letra n para estado_11 :::::::::*/ 
+
+				case 'n' : 	indice++;
+						   	return estado_11();
+			/* :::::::: Letra n para estado_11 :::::::::*/ 
+
+				case 'ñ' : 	indice++;
+						   	return estado_6();
+				case 'o' : 	indice++;
+						   	return estado_6();
+				case 'p' : 	indice++;
+						   	return estado_6();
+				case 'q' : 	indice++;
+						   	return estado_6();							   	
+				case 'r' : 	indice++;
+						   	return estado_6();
+				case 's' : 	indice++;
+						   	return estado_6();
+				case 't' : 	indice++;
+						   	return estado_6();
+				case 'u' : 	indice++;
+						   	return estado_6();
+				case 'v' : 	indice++;
+						   	return estado_6();						   	
+				case 'w' : 	indice++;
+						   	return estado_6();
+				case 'x' : 	indice++;
+						   	return estado_6();
+				case 'y' : 	indice++;
+						   	return estado_6();
+				case 'z' : 	indice++;
+						   	return estado_6();
+
+				default: return estado_13();
+
+			}		
+
+		}
+	}
+
+	function estado_11(){
+
+		var c = ingresado.charAt(indice);
+		document.write("11) El caracter es:  "+c+"<br/>");
+		document.write("Indice= "+indice+" tamaño= "+tamaño+ "<br/><br/>");
+		if (indice<tamaño){
+
+
+			switch(c){
+
+
+				case 'a' : 	indice++;
+						   	return estado_6();
+				case 'b' : 	indice++;
+						   	return estado_6();
+				case 'c' : 	indice++;
+						   	return estado_6();
+				case 'd' : 	indice++;
+						   	return estado_6();
+				case 'e' : 	indice++;
+						   	return estado_6();
+				case 'f' : 	indice++;
+						   	return estado_6();
+				case 'g' : 	indice++;
+						   	return estado_6();
+				case 'h' : 	indice++;
+						   	return estado_6();
+				case 'i' : 	indice++;
+						   	return estado_6();
+				case 'j' : 	indice++;
+						   	return estado_6();
+				case 'k' : 	indice++;
+						   	return estado_6();
+				case 'l' : 	indice++;
+						   	return estado_6();
+				case 'm' : 	indice++;
+						   	return estado_6();
+				case 'n' : 	indice++;
+						   	return estado_6();
+				case 'ñ' : 	indice++;
+						   	return estado_6();
+				case 'o' : 	indice++;
+						   	return estado_6();
+				case 'p' : 	indice++;
+						   	return estado_6();
+				case 'q' : 	indice++;
+						   	return estado_6();							   	
+				case 'r' : 	indice++;
+						   	return estado_6();
+				case 's' : 	indice++;
+						   	return estado_6();
+
+			/* :::::::: Letra n para estado_12 :::::::::*/ 
+				case 't' : 	return estado_12();
+			/* :::::::: Letra n para estado_12 :::::::::*/ 			   	
+
+				case 'u' : 	indice++;
+						   	return estado_6();
+				case 'v' : 	indice++;
+						   	return estado_6();						   	
+				case 'w' : 	indice++;
+						   	return estado_6();
+				case 'x' : 	indice++;
+						   	return estado_6();
+				case 'y' : 	indice++;
+						   	return estado_6();
+				case 'z' : 	indice++;
+						   	return estado_6();
+
+				default: return estado_13();
+
+			}		
+
+		}
+	}
+
+
+	function estado_12(){
+
+		var c = ingresado.charAt(indice);
+		document.write("12) El caracter es:  "+c+"<br/>");
+		document.write("Indice= "+indice+" tamaño= "+tamaño+ "<br/><br/>");
+		if ((tamaño - indice)<=1) {
+
+				document.write("ESTADO ACEPTADO 'IMPRIMIR' ");
+				
+				
+			}else{ 
+					document.write("ESTADO NO ACEPTADO");
+				
+			};	
+	}
+
+	function estado_13(){
+
+		var c = ingresado.charAt(indice);
+		document.write("13) El caracter es:  "+c+"<br/>");
+		document.write("Indice= "+indice+" tamaño= "+tamaño+ "<br/><br/>");
+		if ((tamaño - indice)<=1) {
+
+				document.write("ESTADO ACEPTADO 'LETRAS' ");
+				
+				
+			}else{ 
+					document.write("ESTADO NO ACEPTADO");
+				
+			};	
+	}
+
+
+	</script>
+
+</body>
+</html>
